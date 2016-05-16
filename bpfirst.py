@@ -42,22 +42,19 @@ def main():
     Nx = 10; Ny = 30;
     
     sys, lead = monolayer_black_phosphorus.make_system_two_terminal(Nx, Ny)
-    #kwant.plot(sys)
     pars = SimplenameSpace()
     pars.vtop = 0.5
     pars.vbottom = -pars.vtop
     pars.vi = 0.01
     pars.EF = 0.3
+
     ##plot_bands
-    data = calculate.caculate_energy_band(lead,pars)
+    bands = calculate.caculate_energy_band(lead,pars)
 
 
     fig, axes = plt.subplots(1,4)
-    
-    
-
     ##bands
-    draw.simple_plot_data_2d(data,axes[0],xlabel="k")
+    draw.simple_plot_data_2d(bands,axes[0],xlabel="k")
 
     ##磁场phi变化
     pars.EL, pars.ER, pars.W = [-0.01, 0.0, 0.0]

@@ -8,6 +8,7 @@ Contact: gengyusheng@gmail.com
 #import matplotlib as mpl; mpl.use("Agg")
 from __future__ import division
 from matplotlib import pylab as plt
+import kwant
 
 def simple_plot_data_2d(data,ax=None, xlabel = None, ylabel=None, xlim= None, ylim= None):
     """

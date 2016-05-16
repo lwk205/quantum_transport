@@ -8,7 +8,7 @@ Contact: gengyusheng@gmail.com
 from __future__ import division
 import kwant
 import numpy as np
-import  scipy.linalg as sl
+import scipy.linalg as sl
 
 
 
@@ -40,8 +40,9 @@ def caculate_energy_band(lead, pars):
     enbands=[list(bands(k)) for k in ks]
     return [ks, enbands]
 
-def calculate_wave_density(sys):
-    pass
+def wave_density(sys, energy, pars, lead_nr=0):
+    wf = kwant.wave_function(sys, energy, args=[pars])
+    return (abs(wf(lead_nr))**2).sum(axis=0)
 
 def test():
     pass
