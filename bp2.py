@@ -49,7 +49,6 @@ def main():
     kwant.plotter.map(sys,wave_density,ax=axes[1])
     fig.set_figwidth(12)
     fig.set_figheight(6)
-
     fig.show()
 
 
