@@ -50,12 +50,9 @@ def main():
 
     ##plot_bands
     # bands = calculate.caculate_energy_band(lead,pars)
-
-
-    fig, axes = plt.subplots(1,4)
-    ##bands
     # draw.simple_plot_data_2d(bands,axes[0],xlabel="k")
 
+    fig, axes = plt.subplots(1,4)
     ##磁场EF变化
     pars.EL, pars.ER, pars.W = [0.0, 0.0, 0.0]
     phis = np.linspace(-3, 3, 10)
