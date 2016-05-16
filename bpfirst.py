@@ -46,15 +46,20 @@ def main():
     pars.vtop = 0.5
     pars.vbottom = -pars.vtop
     pars.vi = 0.01
-    pars.EF = 0.3
+    pars.EF = 0.35
 
     ##plot_bands
-    bands = calculate.caculate_energy_band(lead,pars)
+    # bands = calculate.caculate_energy_band(lead,pars)
 
 
     fig, axes = plt.subplots(1,4)
     ##bands
-    draw.simple_plot_data_2d(bands,axes[0],xlabel="k")
+    # draw.simple_plot_data_2d(bands,axes[0],xlabel="k")
+
+    ##磁场EF变化
+    pars.EL, pars.ER, pars.W = [0.0, 0.0, 0.0]
+    phis = np.linspace(-3, 3, 10)
+    attr_vers_cond(sys,pars,phis,axes[0],'EF')
 
     ##磁场phi变化
     pars.EL, pars.ER, pars.W = [-0.01, 0.0, 0.0]
@@ -73,7 +78,9 @@ def main():
     
     fig.set_figwidth(12)
     fig.set_figheight(3)
-    
+
+    wave_density = calculate.wave_density(sys,0.4,pars,lead_nr=0)
+    kwant.plotter.map(sys,wave_density)
     #plt.show()
     
     return fig
