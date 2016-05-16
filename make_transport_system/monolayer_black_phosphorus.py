@@ -9,6 +9,7 @@ from __future__ import division
 import kwant
 import random
 from cmath import exp
+import math
 from lattices import  _make_lattice_bp_single_layer
 import matplotlib.pylab
 
@@ -50,6 +51,15 @@ def make_system_two_terminal( Nx=10,Ny=10):
             else:
                 return -vi+PNU
             
+
+    def potential_2( site, pars):
+        c = 4.5771999359
+        EL, ER, W, vtop, vbottom, vi = pars.EL, pars.ER, pars.W,pars.vtop,\
+                                    pars.vbottom, pars.vi
+        x0, y0 = site.pos
+        PNU = EL+(ER-EL)*x0/Nx+W*(2.0*random.random()-1.0)
+        x, y = site.tag
+        return vtop*math.exp((y0-(Ny-1)*c)*0.20) + vbottom*exp(-y0*0.20) + vi + PNU
 
 
     def left_pot(site, pars):
@@ -128,17 +138,17 @@ def make_system_two_terminal( Nx=10,Ny=10):
 
 
     sys = kwant.Builder()
-    sys[[a(nx,ny) for a in sublattices for nx in range(Nx) for ny in range(Ny)] ]= potential
+    sys[[a(nx,ny) for a in sublattices for nx in range(Nx) for ny in range(Ny)] ]= potential_2
     set_hopping(sys)
 
     sym_left = kwant.lattice.TranslationalSymmetry(lattice.vec((-1,0)))
     sym_right = kwant.lattice.TranslationalSymmetry(lattice.vec((1,0)))
     lead_left = kwant.Builder(sym_left)
     lead_right = kwant.builder.Builder(sym_right)
-    lead_left[[a(nx,ny) for a in sublattices for nx in range(Nx) for ny in range(Ny)] ]= potential
+    lead_left[[a(nx,ny) for a in sublattices for nx in range(Nx) for ny in range(Ny)] ]= potential_2
     set_hopping(lead_left)
 
-    lead_right[[a(nx,ny) for a in sublattices for nx in range(Nx) for ny in range(Ny)] ]= potential
+    lead_right[[a(nx,ny) for a in sublattices for nx in range(Nx) for ny in range(Ny)] ]= potential_2
     set_hopping(lead_right)
 
     sys.attach_lead(lead_left)
