@@ -8,7 +8,7 @@ Contact: gengyusheng@gmail.com
 from __future__ import division
 import kwant
 import numpy as np
-import  scipy.linalg as sl
+import scipy.linalg as sl
 
 
 
