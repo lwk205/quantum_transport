@@ -19,12 +19,37 @@ def make_system_two_terminal( Nx=10,Ny=10):
     pars 为 pars.EL, pars.ER, pars.phi, pars.W
     """
     lattice, sublattices = _make_lattice_bp_single_layer()
-
+    A = sublattices
 
     def potential( site, pars):
-        EL, ER, W = pars.EL, pars.ER, pars.W
-        x,y=site.pos
-        return EL+(ER-EL)*x/Nx+W*(2.0*random.random()-1.0)
+        EL, ER, W,vtop,vbottom,vi = pars.EL, pars.ER, pars.W,pars.vtop,\
+                                    pars.vbottom, pars.vi
+        x0,y0=site.pos
+        PNU = EL+(ER-EL)*x0/Nx+W*(2.0*random.random()-1.0)
+        
+        x,y=site.tag
+        if site.family==A[0]:
+            if y==Ny-1:
+                return vtop+PNU
+            else:
+                return vi+PNU
+        if site.family==A[1]:
+            if y==Ny-1:
+                return vtop+PNU
+            else:
+                return vi+PNU
+            
+        if site.family==A[2]:
+            if y==0:
+                return vbottom+PNU
+            else:
+                return -vi+PNU
+        if  site.family==A[3]:
+            if y==0:
+                return vbottom+PNU
+            else:
+                return -vi+PNU
+            
 
 
     def left_pot(site, pars):
@@ -37,7 +62,7 @@ def make_system_two_terminal( Nx=10,Ny=10):
 
     def set_hopping(sys):
         t1, t2, t3, t4, t5 = -1.0 ,3.0041, -0.1680, -0.0861, -0.0451
-        A = sublattices
+        
 
         #t1: nearest hopping
         def hop_t1(site1,site2,pars):
@@ -110,10 +135,10 @@ def make_system_two_terminal( Nx=10,Ny=10):
     sym_right = kwant.lattice.TranslationalSymmetry(lattice.vec((1,0)))
     lead_left = kwant.Builder(sym_left)
     lead_right = kwant.builder.Builder(sym_right)
-    lead_left[[a(nx,ny) for a in sublattices for nx in range(Nx) for ny in range(Ny)] ]= left_pot
+    lead_left[[a(nx,ny) for a in sublattices for nx in range(Nx) for ny in range(Ny)] ]= potential
     set_hopping(lead_left)
 
-    lead_right[[a(nx,ny) for a in sublattices for nx in range(Nx) for ny in range(Ny)] ]= ringht_pot
+    lead_right[[a(nx,ny) for a in sublattices for nx in range(Nx) for ny in range(Ny)] ]= potential
     set_hopping(lead_right)
 
     sys.attach_lead(lead_left)
