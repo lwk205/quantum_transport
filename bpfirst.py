@@ -28,12 +28,12 @@ class SimplenameSpace:
         self.EF = 0.25
 
 
-def attr_vers_cond(sys,pars,values,ax,attr):
+def attr_vers_cond(sys,pars,values,attr):
     Ts = [
         calculate.calculate_conductance(sys, Ef=pars.EF, out_leads=1, in_leads=0, pars=pars)
         for vars(pars)[attr]  in values
         ]
-    ax = draw.simple_plot_data_2d([values, Ts], ax=ax, xlabel=attr)
+    ax = draw.simple_plot_data_2d_without_ax([values, Ts],  xlabel=attr,ylabel="Conductance")
     return ax
 
 
@@ -52,35 +52,34 @@ def main():
     # bands = calculate.caculate_energy_band(lead,pars)
     # draw.simple_plot_data_2d(bands,axes[0],xlabel="k")
 
-    fig, axes = plt.subplots(1,3)
+
     ##磁场EF变化
     pars = SimplenameSpace()
     pars.EL, pars.ER, pars.W = [-0.3, -0.6, 0.0]
     EFs = np.linspace(0.0, 0.6 , 100)
-    attr_vers_cond(sys,pars,EFs,axes[0],'EF')
+    attr_vers_cond(sys,pars,EFs,'EF')
 
 #    ##磁场phi变化
 #    pars = SimplenameSpace()
 #    pars.EL, pars.ER, pars.W = [0.0, 0.0, 0.0]
 #    phis = np.linspace(-3, 3, 50)
-#    attr_vers_cond(sys,pars,phis,axes[1],'phi')
+#    attr_vers_cond(sys,pars,phis,'phi')
 
     ##右边势能ER变化    
     pars = SimplenameSpace()
     pars.EF = 0.0
     pars.EL, pars.W ,pars.phi = [-0.3, 0.0, 0.00]
     ERs = np.linspace(-3.0, 0.3, 100)
-    attr_vers_cond(sys, pars, ERs, axes[1], 'ER')
+    attr_vers_cond(sys, pars, ERs, 'ER')
 
     ##无序强度W变化
     pars = SimplenameSpace()
     pars.EF = 0.0
     pars.EL,pars.ER,pars.phi=[-0.3, -0.6, 0.00]
     Ws = np.linspace(0, 5.0, 100)
-    attr_vers_cond(sys, pars, Ws, axes[2], 'W')
+    attr_vers_cond(sys, pars, Ws, 'W')
     
-    fig.set_figwidth(12)
-    fig.set_figheight(3)
+
 #
 #    pars = SimplenameSpace()
 #    wave_density = calculate.wave_density(sys,pars.EF,pars,lead_nr=0)

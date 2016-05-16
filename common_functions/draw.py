@@ -34,6 +34,34 @@ def simple_plot_data_2d(data,ax=None, xlabel = None, ylabel=None, xlim= None, yl
 
     return  ax
 
+def simple_plot_data_2d_without_ax(data, xlabel = None, ylabel=None, xlim= None, ylim= None):
+    """
+    简单的作图程序，主要用于直观显示数据，具体的参数调节需要编写复杂的作图程序
+    :param data:
+    :param xlim:
+    :param ylim:
+    :return:
+    """
+    plt.figure()
+    plt.plot(data[0],data[1])
+
+    if xlabel:
+        plt.xlabel(xlabel)
+    if ylabel:
+        plt.ylabel(ylabel)
+    if xlim:
+        plt.xlim(xlim)
+    if ylim:
+        plt.ylim(ylim)
+
+    plt.show()
+
+def plot_3d_map(data):
+    """
+    二维map函数，可用于画相图之类的东西
+    :param data:
+    :return:
+    """
 
 
 def test():
