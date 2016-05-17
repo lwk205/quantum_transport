@@ -24,14 +24,14 @@ class SimplenameSpace:
 
 def attr_vers_cond(sys,pars,values,attr):
     Ts = [
-        calculate.calculate_conductance(sys, Ef=pars.EF, out_leads=1, in_leads=0, pars=pars)
+        np.sort(calculate.calculate_conductance(sys, Ef=pars.EF, out_leads=1, in_leads=0, pars=pars))
         for vars(pars)[attr]  in values
         ]
     draw.simple_plot_data_2d_without_ax([values, Ts],  xlabel=attr,ylabel="Conductance")
     # return np.array([values, Ts])
 
 def landau_levels(sys,values,pars, sparse):
-     egs = [calculate.system_eigvalues(sys.finalized(), pars, sparse) for pars.phi in values]
+     egs = [np.sort(calculate.system_eigvalues(sys.finalized(), pars, sparse))[0] for pars.phi in values]
      draw.simple_plot_data_2d_without_ax([values, egs],xlabel="$\phi$" , ylabel="Energy")
 
 def landau_dos(sys,pars,sparse):

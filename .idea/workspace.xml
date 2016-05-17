@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ec30bb99-d5ad-4269-a65e-49568dea81f9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common_functions/calculate.py" afterPath="$PROJECT_DIR$/common_functions/calculate.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graphenefirst.py" afterPath="$PROJECT_DIR$/graphenefirst.py" />
     </list>
     <ignored path="quantum_transport.iws" />
@@ -28,10 +27,14 @@
       <file leaf-file-name="graphenefirst.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/graphenefirst.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="77" column="32" selection-start-line="77" selection-start-column="32" selection-end-line="77" selection-end-column="32" />
+            <state relative-caret-position="406">
+              <caret line="78" column="30" selection-start-line="78" selection-start-column="30" selection-end-line="78" selection-end-column="30" />
               <folding>
                 <element signature="e#123#154#0" expanded="true" />
+                <element signature="e#359#488#0" expanded="false" />
+                <element signature="e#537#820#0" expanded="false" />
+                <element signature="e#871#1061#0" expanded="false" />
+                <element signature="e#1100#1619#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -88,8 +91,8 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/make_transport_system/monolayer_graphene.py" />
         <option value="$PROJECT_DIR$/../kwant-examples-1.0.0/tutorial/closed_system.py" />
-        <option value="$PROJECT_DIR$/graphenefirst.py" />
         <option value="$PROJECT_DIR$/common_functions/calculate.py" />
+        <option value="$PROJECT_DIR$/graphenefirst.py" />
       </list>
     </option>
   </component>
@@ -479,7 +482,14 @@
       <option name="project" value="LOCAL" />
       <updated>1463488071896</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="graphene&#10;">
+      <created>1463489324407</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1463489324407</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -520,7 +530,8 @@
     <MESSAGE value="test.log" />
     <MESSAGE value="map_function&#10;" />
     <MESSAGE value="random&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="random&#10;" />
+    <MESSAGE value="graphene&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="graphene&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -545,7 +556,7 @@
         <state relative-caret-position="714">
           <caret line="61" column="71" selection-start-line="61" selection-start-column="71" selection-end-line="61" selection-end-column="71" />
           <folding>
-            <element signature="e#111#142#0" expanded="true" />
+            <element signature="e#111#142#0" expanded="false" />
             <element signature="e#330#5025#0" expanded="false" />
             <element signature="e#521#1307#0" expanded="false" />
             <element signature="e#1857#4284#0" expanded="false" />
@@ -571,7 +582,7 @@
         <state relative-caret-position="714">
           <caret line="61" column="71" selection-start-line="61" selection-start-column="71" selection-end-line="61" selection-end-column="71" />
           <folding>
-            <element signature="e#111#142#0" expanded="true" />
+            <element signature="e#111#142#0" expanded="false" />
             <element signature="e#330#5025#0" expanded="false" />
             <element signature="e#521#1307#0" expanded="false" />
             <element signature="e#1857#4284#0" expanded="false" />
@@ -618,7 +629,7 @@
         <state relative-caret-position="131">
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="13" selection-end-column="23" />
           <folding>
-            <element signature="e#111#142#0" expanded="true" />
+            <element signature="e#111#142#0" expanded="false" />
             <element signature="e#330#5025#0" expanded="false" />
             <element signature="e#521#1307#0" expanded="false" />
             <element signature="e#1857#4284#0" expanded="false" />
@@ -695,10 +706,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/graphenefirst.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="77" column="32" selection-start-line="77" selection-start-column="32" selection-end-line="77" selection-end-column="32" />
+        <state relative-caret-position="406">
+          <caret line="78" column="30" selection-start-line="78" selection-start-column="30" selection-end-line="78" selection-end-column="30" />
           <folding>
             <element signature="e#123#154#0" expanded="true" />
+            <element signature="e#359#488#0" expanded="false" />
+            <element signature="e#537#820#0" expanded="false" />
+            <element signature="e#871#1061#0" expanded="false" />
+            <element signature="e#1100#1619#0" expanded="false" />
           </folding>
         </state>
       </provider>
