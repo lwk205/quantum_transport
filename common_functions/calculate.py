@@ -9,6 +9,7 @@ from __future__ import division
 import kwant
 import numpy as np
 import scipy.linalg as sl
+import  scipy.sparse.linalg as sla
 
 
 
@@ -54,8 +55,9 @@ def eig_solve(matrix, eigvals_only):
 
 
 def eig_system_hamiltonian(sys, pars):
-    ham=get_system_hamiltonian(sys,pars)
-    return eig_solve(ham, eigvals_only=True)
+    ham=get_system_hamiltonian(sys,pars,sparse=True)
+    sla.eigsh(ham,k=6,which='SM',return_eigenvectors=False)
+    return sla.eigsh(ham,which='SM',return_eigenvectors=False)
 
 
 def test():

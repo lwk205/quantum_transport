@@ -37,21 +37,21 @@ def make_monolayer_graphene_system(Nx,Ny):
 
     sys = kwant.Builder()
     sys[[a(nx,ny) for a in Subs for nx in range(Nx) for ny in range(Ny)]] = potential
-    sys[graphene.neighbors(eps=0.0001)] = hopping
+    sys[graphene.neighbors()] = hopping
 
     sym_left = kwant.lattice.TranslationalSymmetry((-1,0))
     sym_right = kwant.lattice.TranslationalSymmetry((1,0))
     lead_left = kwant.Builder(sym_left)
     lead_right = kwant.builder.Builder(sym_right)
     lead_left[[a(nx,ny) for a in Subs  for ny in range(Ny)] ]= potential
-    lead_left[graphene.neighbors(eps=0.0001)] = hopping
+    lead_left[graphene.neighbors()] = hopping
     lead_right[[a(nx,ny) for a in Subs  for ny in range(Ny)] ]= potential
-    lead_right[graphene.neighbors(eps=0.0001)] = hopping
+    lead_right[graphene.neighbors()] = hopping
 
     return sys,lead_left,lead_right
 
 def test():
-    Nx = 10; Ny = 10;
+    Nx = 30; Ny = 30;
     sys,lead0,lead1 = make_monolayer_graphene_system(Nx,Ny)
     kwant.plot(sys)
     sys.attach_lead(lead0)

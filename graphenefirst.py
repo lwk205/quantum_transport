@@ -34,14 +34,28 @@ def landau_levels(sys,values,pars,ylim):
      egs = [calculate.eig_system_hamiltonian(sys.finalized(), pars) for pars.phi in values]
      draw.simple_plot_data_2d_without_ax([values, egs], ylim = ylim,xlabel="$\phi$" , ylabel="Energy")
 
-def landau_dos(sys,values,pars):
+def landau_dos(sys,pars):
     egs = calculate.eig_system_hamiltonian(sys.finalized(),pars)
-    delta = 0.0001
+    delta = 0.00001
     N = 0
-    while N<len(egs):
+    egg = np.arange(-4.1,4.1,delta)
+    ns = []
+    for eg in egg:
         n = 0
-        while egs[N+1] < egs[N] + delta:
-            pass
+
+        if N < len(egs) :
+            while eg <= egs[N] < eg + delta:
+                N = N+1
+                n = n + 1
+                if N >= len(egs):
+                    break
+            ns.append(n)
+        else:
+            ns.append(0)
+
+
+    draw.simple_plot_data_2d_without_ax([egg, ns],ylim=[0,3.5],xlim=[-3.0,3.0])
+    return None
 
 
 def plot_bands(lead,pars):
@@ -49,18 +63,27 @@ def plot_bands(lead,pars):
     draw.simple_plot_data_2d_without_ax(data, xlabel="k", ylabel="Energy")
 
 def main():
-    Nx = 10
-    Ny = 10
+    Nx = 30
+    Ny = 30
 
     sys, lead_left, lead_right = monolayer_graphene.make_monolayer_graphene_system(Nx,Ny)
 
 
-    pars = SimplenameSpace()
-    phis = np.linspace(0.0,7.3,100)
-    landau_levels(sys,phis,pars,ylim=None)
 
+    # pars = SimplenameSpace()
+    # phis = np.linspace(0.0,7.3,100)
+    # landau_levels(sys,phis,pars,ylim=None)
+    #
+    # pars = SimplenameSpace()
+    # plot_bands(lead_left,pars)
     pars = SimplenameSpace()
-    plot_bands(lead_left,pars)
+    pars.phi = 0.0
+    pars.EL = 1.0
+    pars.ER = 0.0
+    # ham = calculate.get_system_hamiltonian(sys.finalized(),pars, sparse=True)
+    landau_dos(sys,pars)
+    # egs = calculate.eig_system_hamiltonian(sys.finalized(),pars)
+    return ham
 
 if __name__ == "__main__":
-    main()
+    ham = main()
