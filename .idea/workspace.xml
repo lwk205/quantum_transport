@@ -5,7 +5,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common_functions/calculate.py" afterPath="$PROJECT_DIR$/common_functions/calculate.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graphenefirst.py" afterPath="$PROJECT_DIR$/graphenefirst.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/make_transport_system/monolayer_graphene.py" afterPath="$PROJECT_DIR$/make_transport_system/monolayer_graphene.py" />
     </list>
     <ignored path="quantum_transport.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,8 +28,8 @@
       <file leaf-file-name="graphenefirst.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/graphenefirst.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="449">
-              <caret line="84" column="7" selection-start-line="84" selection-start-column="7" selection-end-line="84" selection-end-column="7" />
+            <state relative-caret-position="302">
+              <caret line="77" column="32" selection-start-line="77" selection-start-column="32" selection-end-line="77" selection-end-column="32" />
               <folding>
                 <element signature="e#123#154#0" expanded="true" />
               </folding>
@@ -41,7 +40,7 @@
       <file leaf-file-name="monolayer_graphene.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/make_transport_system/monolayer_graphene.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
+            <state relative-caret-position="176">
               <caret line="53" column="20" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="20" />
               <folding>
                 <element signature="e#117#148#0" expanded="true" />
@@ -53,8 +52,8 @@
       <file leaf-file-name="calculate.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/common_functions/calculate.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="365">
-              <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+            <state relative-caret-position="176">
+              <caret line="55" column="33" selection-start-line="55" selection-start-column="33" selection-end-line="55" selection-end-column="33" />
               <folding>
                 <element signature="e#109#140#0" expanded="true" />
               </folding>
@@ -88,6 +87,7 @@
         <option value="$PROJECT_DIR$/bpfirst.py" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/make_transport_system/monolayer_graphene.py" />
+        <option value="$PROJECT_DIR$/../kwant-examples-1.0.0/tutorial/closed_system.py" />
         <option value="$PROJECT_DIR$/graphenefirst.py" />
         <option value="$PROJECT_DIR$/common_functions/calculate.py" />
       </list>
@@ -199,6 +199,40 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="quantum_transport" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/graphenefirst.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="calculate" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/common_functions" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="quantum_transport" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/common_functions/calculate.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="closed_system" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../kwant-examples-1.0.0/tutorial" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="quantum_transport" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../kwant-examples-1.0.0/tutorial/closed_system.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -337,16 +371,20 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <list size="3">
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.bpfirst" />
       <item index="1" class="java.lang.String" itemvalue="Python.monolayer_graphene" />
       <item index="2" class="java.lang.String" itemvalue="Python.graphenefirst" />
+      <item index="3" class="java.lang.String" itemvalue="Python.calculate" />
+      <item index="4" class="java.lang.String" itemvalue="Python.closed_system" />
     </list>
     <recent_temporary>
-      <list size="3">
+      <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.graphenefirst" />
-        <item index="1" class="java.lang.String" itemvalue="Python.monolayer_graphene" />
-        <item index="2" class="java.lang.String" itemvalue="Python.bpfirst" />
+        <item index="1" class="java.lang.String" itemvalue="Python.closed_system" />
+        <item index="2" class="java.lang.String" itemvalue="Python.calculate" />
+        <item index="3" class="java.lang.String" itemvalue="Python.monolayer_graphene" />
+        <item index="4" class="java.lang.String" itemvalue="Python.bpfirst" />
       </list>
     </recent_temporary>
   </component>
@@ -434,7 +472,14 @@
       <option name="project" value="LOCAL" />
       <updated>1463467856658</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="random&#10;">
+      <created>1463488071896</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1463488071896</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -622,7 +667,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/make_transport_system/monolayer_graphene.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
+        <state relative-caret-position="176">
           <caret line="53" column="20" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="20" />
           <folding>
             <element signature="e#117#148#0" expanded="true" />
@@ -630,10 +675,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../kwant-examples-1.0.0/tutorial/closed_system.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="88" column="25" selection-start-line="88" selection-start-column="25" selection-end-line="88" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/common_functions/calculate.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+        <state relative-caret-position="176">
+          <caret line="55" column="33" selection-start-line="55" selection-start-column="33" selection-end-line="55" selection-end-column="33" />
           <folding>
             <element signature="e#109#140#0" expanded="true" />
           </folding>
@@ -642,8 +695,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/graphenefirst.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="84" column="7" selection-start-line="84" selection-start-column="7" selection-end-line="84" selection-end-column="7" />
+        <state relative-caret-position="302">
+          <caret line="77" column="32" selection-start-line="77" selection-start-column="32" selection-end-line="77" selection-end-column="32" />
           <folding>
             <element signature="e#123#154#0" expanded="true" />
           </folding>

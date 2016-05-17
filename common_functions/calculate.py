@@ -50,14 +50,12 @@ def get_system_hamiltonian(sys, pars, sparse = False):
     ham_mat = sys.hamiltonian_submatrix(args=[pars], sparse=sparse)
     return ham_mat
 
-def eig_solve(matrix, eigvals_only):
-    return sl.eigh(matrix, eigvals_only=eigvals_only)
-
-
-def eig_system_hamiltonian(sys, pars):
-    ham=get_system_hamiltonian(sys,pars,sparse=True)
-    sla.eigsh(ham,k=6,which='SM',return_eigenvectors=False)
-    return sla.eigsh(ham,which='SM',return_eigenvectors=False)
+def system_eigvalues(sys, pars,sparse=False):
+    ham=get_system_hamiltonian(sys,pars,sparse=sparse)
+    if sparse:
+        return sla.eigsh(ham,k=15,which='SM',return_eigenvectors=False)
+    else:
+        return sl.eigh(ham,eigvals_only=True)
 
 
 def test():
