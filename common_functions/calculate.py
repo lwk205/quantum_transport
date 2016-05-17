@@ -44,6 +44,20 @@ def wave_density(sys, energy, pars, lead_nr=0):
     wf = kwant.wave_function(sys, energy, args=[pars])
     return (abs(wf(lead_nr))**2).sum(axis=0)
 
+
+def get_system_hamiltonian(sys, pars, sparse = False):
+    ham_mat = sys.hamiltonian_submatrix(args=[pars], sparse=sparse)
+    return ham_mat
+
+def eig_solve(matrix, eigvals_only):
+    return sl.eigh(matrix, eigvals_only=eigvals_only)
+
+
+def eig_system_hamiltonian(sys, pars):
+    ham=get_system_hamiltonian(sys,pars)
+    return eig_solve(ham, eigvals_only=True)
+
+
 def test():
     pass
 
