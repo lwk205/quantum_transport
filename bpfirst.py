@@ -96,7 +96,7 @@ def main():
         data = attr_vers_cond(sys, pars, Ws, 'W')
         return data
         
-    N = 100
+    N = 200
     All = 0.0
     random.seed(10000)
     for i in range(N):
@@ -121,4 +121,7 @@ def main():
 
 if __name__ == "__main__":
     All = main()
+    plt.figure()
+    plt.plot(All[0,:],All[1,:])
+    plt.show()
 
