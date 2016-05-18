@@ -67,12 +67,17 @@ def main():
     Ny = 30
 
     sys, lead_left, lead_right = monolayer_graphene.make_monolayer_graphene_system(Nx,Ny)
-
-
-
+    sys.attach_lead(lead_right)
+    sys.attach_lead(lead_left)
+    sys = sys.finalized()
     pars = SimplenameSpace()
-    phis = np.linspace(3.0,4.3,10)
-    landau_levels(sys,phis,pars,sparse=False)
+    EFs = np.linspace(0.0,2.0)
+    attr_vers_cond(sys,pars,EFs,"EF")
+
+
+    # pars = SimplenameSpace()
+    # phis = np.linspace(3.0,4.3,10)
+    # landau_levels(sys,phis,pars,sparse=False)
     #
     # pars = SimplenameSpace()
     # plot_bands(lead_left,pars)
