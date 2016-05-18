@@ -63,16 +63,16 @@ def plot_bands(lead,pars):
     draw.simple_plot_data_2d_without_ax(data, xlabel="k", ylabel="Energy")
 
 def main():
-    Nx = 10
-    Ny = 10
+    Nx = 30
+    Ny = 30
 
     sys, lead_left, lead_right = monolayer_graphene.make_monolayer_graphene_system(Nx,Ny)
 
 
 
     pars = SimplenameSpace()
-    phis = np.linspace(3.0,4.3,100)
-    landau_levels(sys,phis,pars,sparse=True)
+    phis = np.linspace(3.0,4.3,10)
+    landau_levels(sys,phis,pars,sparse=False)
     #
     # pars = SimplenameSpace()
     # plot_bands(lead_left,pars)
