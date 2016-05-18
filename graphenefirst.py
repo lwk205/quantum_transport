@@ -24,18 +24,18 @@ class SimplenameSpace:
 
 def attr_vers_cond(sys,pars,values,attr):
     Ts = [
-        np.sort(calculate.calculate_conductance(sys, Ef=pars.EF, out_leads=1, in_leads=0, pars=pars))
+        calculate.calculate_conductance(sys, pars.EF, out_leads=1, in_leads=0, pars=pars)
         for vars(pars)[attr]  in values
         ]
     draw.simple_plot_data_2d_without_ax([values, Ts],  xlabel=attr,ylabel="Conductance")
     # return np.array([values, Ts])
 
 def landau_levels(sys,values,pars, sparse):
-     egs = [np.sort(calculate.system_eigvalues(sys.finalized(), pars, sparse))[0] for pars.phi in values]
+     egs = [np.sort(calculate.system_eigvalues(sys, pars, sparse)) for pars.phi in values]
      draw.simple_plot_data_2d_without_ax([values, egs],xlabel="$\phi$" , ylabel="Energy")
 
 def landau_dos(sys,pars,sparse):
-    egs = calculate.system_eigvalues(sys.finalized(), pars, sparse )
+    egs = calculate.system_eigvalues(sys, pars, sparse )
     delta = 0.00001
     N = 0
     egg = np.arange(-4.1,4.1,delta)
@@ -63,22 +63,24 @@ def plot_bands(lead,pars):
     draw.simple_plot_data_2d_without_ax(data, xlabel="k", ylabel="Energy")
 
 def main():
-    Nx = 30
-    Ny = 30
+    Nx = 32
+    Ny = 32
 
     sys, lead_left, lead_right = monolayer_graphene.make_monolayer_graphene_system(Nx,Ny)
-    sys.attach_lead(lead_right)
-    sys.attach_lead(lead_left)
-    sys = sys.finalized()
     pars = SimplenameSpace()
-    EFs = np.linspace(0.0,2.0)
+    pars.EL = 0.0
+    pars.phi = 0.0
+    EFs = np.linspace(0.000001,0.2)
     attr_vers_cond(sys,pars,EFs,"EF")
 
-
-    # pars = SimplenameSpace()
-    # phis = np.linspace(3.0,4.3,10)
-    # landau_levels(sys,phis,pars,sparse=False)
     #
+    # pars = SimplenameSpace()
+    # pars.EF = 0.0
+    # pars.EL = 0.0
+    # pars.ER = 0.0
+    # phis = np.linspace(0.0,7,2)
+    # landau_levels(sys,phis,pars,sparse=False)
+
     # pars = SimplenameSpace()
     # plot_bands(lead_left,pars)
     # pars = SimplenameSpace()
