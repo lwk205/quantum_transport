@@ -26,7 +26,7 @@ def make_monolayer_graphene_system(Nx,Ny):
     def potential(site,pars):
         x, y = site.pos
         EL, ER = pars.EL, pars.ER
-        return EL+(ER-EL)*x/Nx + pars.W*(2.0*random.random()-1.0)+1.0
+        return EL+(ER-EL)*x/Nx + pars.W*(2.0*random.random()-1.0)
 
 
     def hopping(site1,site2,pars) :

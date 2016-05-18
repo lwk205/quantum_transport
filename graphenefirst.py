@@ -70,7 +70,7 @@ def main():
     pars = SimplenameSpace()
     pars.EL = 0.0
     pars.phi = 0.0
-    EFs = np.linspace(0.000001,0.2)
+    EFs = np.linspace(0.5,1.3)
     attr_vers_cond(sys,pars,EFs,"EF")
 
     #
