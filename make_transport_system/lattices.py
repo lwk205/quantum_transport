@@ -31,7 +31,7 @@ def _make_graphene_lattice() :
     graphene = kwant.lattice.general(
                                     [(1, 0), (0.0, sqrt(3))],
                                     [
-                                        (0, 0), (0.5, -0.5 / sqrt(3)),
+                                        (0.5, -0.5 / sqrt(3)), (0, 0),
                                         (0.0, 1 / sqrt(3)), (0.5, 0.5 * sqrt(3))
                                     ]
                                       )

@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ec30bb99-d5ad-4269-a65e-49568dea81f9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graphene_notebook.ipynb" afterPath="$PROJECT_DIR$/graphene_notebook.ipynb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/graphenefirst.py" afterPath="$PROJECT_DIR$/graphenefirst.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/make_transport_system/lattices.py" afterPath="$PROJECT_DIR$/make_transport_system/lattices.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/make_transport_system/monolayer_graphene.py" afterPath="$PROJECT_DIR$/make_transport_system/monolayer_graphene.py" />
     </list>
     <ignored path="quantum_transport.iws" />
@@ -24,14 +27,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="graphenefirst.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="graphenefirst.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/graphenefirst.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="72" column="29" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="29" />
+            <state relative-caret-position="218">
+              <caret line="80" column="31" selection-start-line="80" selection-start-column="31" selection-end-line="80" selection-end-column="31" />
               <folding>
                 <element signature="e#123#154#0" expanded="true" />
                 <element signature="e#359#488#0" expanded="false" />
+                <element signature="e#1073#1580#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -40,17 +44,21 @@
       <file leaf-file-name="monolayer_graphene.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/make_transport_system/monolayer_graphene.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="107" column="52" selection-start-line="107" selection-start-column="52" selection-end-line="107" selection-end-column="52" />
-              <folding />
+            <state relative-caret-position="188">
+              <caret line="108" column="44" selection-start-line="108" selection-start-column="44" selection-end-line="108" selection-end-column="44" />
+              <folding>
+                <element signature="e#329#1544#0" expanded="false" />
+                <element signature="e#1597#2840#0" expanded="false" />
+                <element signature="e#2892#4451#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="monolayer_black_phosphorus.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="monolayer_black_phosphorus.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/make_transport_system/monolayer_black_phosphorus.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1307">
+            <state relative-caret-position="1118">
               <caret line="120" column="62" selection-start-line="120" selection-start-column="62" selection-end-line="120" selection-end-column="62" />
               <folding />
             </state>
@@ -60,8 +68,8 @@
       <file leaf-file-name="lattices.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/make_transport_system/lattices.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-23">
-              <caret line="23" column="40" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
+            <state relative-caret-position="428">
+              <caret line="33" column="63" selection-start-line="33" selection-start-column="63" selection-end-line="33" selection-end-column="63" />
               <folding>
                 <element signature="e#111#142#0" expanded="true" />
               </folding>
@@ -119,8 +127,9 @@
         <option value="$PROJECT_DIR$/../kwant-examples-1.0.0/tutorial/closed_system.py" />
         <option value="$PROJECT_DIR$/common_functions/calculate.py" />
         <option value="$PROJECT_DIR$/../../my_interest/graphene/second.py" />
-        <option value="$PROJECT_DIR$/graphenefirst.py" />
+        <option value="$PROJECT_DIR$/make_transport_system/lattices.py" />
         <option value="$PROJECT_DIR$/make_transport_system/monolayer_graphene.py" />
+        <option value="$PROJECT_DIR$/graphenefirst.py" />
       </list>
     </option>
   </component>
@@ -213,7 +222,7 @@
       <recent name="D:\my_work\quantum_transport" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.monolayer_graphene">
+  <component name="RunManager" selected="Python.graphenefirst">
     <configuration default="false" name="monolayer_graphene" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -442,8 +451,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.monolayer_graphene" />
-        <item index="1" class="java.lang.String" itemvalue="Python.graphenefirst" />
+        <item index="0" class="java.lang.String" itemvalue="Python.graphenefirst" />
+        <item index="1" class="java.lang.String" itemvalue="Python.monolayer_graphene" />
         <item index="2" class="java.lang.String" itemvalue="Python.second" />
         <item index="3" class="java.lang.String" itemvalue="Python.closed_system" />
         <item index="4" class="java.lang.String" itemvalue="Python.calculate" />
@@ -583,14 +592,28 @@
       <option name="project" value="LOCAL" />
       <updated>1463562511461</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="graphene&#10;">
+      <created>1463709241405</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1463709241405</updated>
+    </task>
+    <task id="LOCAL-00019" summary="graphene&#10;">
+      <created>1463709265363</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1463709265363</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24929379" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21892655" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -641,6 +664,7 @@
           <folding>
             <element signature="e#123#154#0" expanded="true" />
             <element signature="e#359#488#0" expanded="false" />
+            <element signature="e#1073#1580#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -690,6 +714,7 @@
           <folding>
             <element signature="e#123#154#0" expanded="true" />
             <element signature="e#359#488#0" expanded="false" />
+            <element signature="e#1073#1580#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -721,6 +746,7 @@
           <folding>
             <element signature="e#123#154#0" expanded="true" />
             <element signature="e#359#488#0" expanded="false" />
+            <element signature="e#1073#1580#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -847,21 +873,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/graphenefirst.py">
+    <entry file="file://$PROJECT_DIR$/make_transport_system/monolayer_black_phosphorus.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="72" column="29" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="29" />
-          <folding>
-            <element signature="e#123#154#0" expanded="true" />
-            <element signature="e#359#488#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="1118">
+          <caret line="120" column="62" selection-start-line="120" selection-start-column="62" selection-end-line="120" selection-end-column="62" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/make_transport_system/lattices.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-23">
-          <caret line="23" column="40" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
+        <state relative-caret-position="428">
+          <caret line="33" column="63" selection-start-line="33" selection-start-column="63" selection-end-line="33" selection-end-column="63" />
           <folding>
             <element signature="e#111#142#0" expanded="true" />
           </folding>
@@ -870,17 +893,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/make_transport_system/monolayer_graphene.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="107" column="52" selection-start-line="107" selection-start-column="52" selection-end-line="107" selection-end-column="52" />
-          <folding />
+        <state relative-caret-position="188">
+          <caret line="108" column="44" selection-start-line="108" selection-start-column="44" selection-end-line="108" selection-end-column="44" />
+          <folding>
+            <element signature="e#329#1544#0" expanded="false" />
+            <element signature="e#1597#2840#0" expanded="false" />
+            <element signature="e#2892#4451#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/make_transport_system/monolayer_black_phosphorus.py">
+    <entry file="file://$PROJECT_DIR$/graphenefirst.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1307">
-          <caret line="120" column="62" selection-start-line="120" selection-start-column="62" selection-end-line="120" selection-end-column="62" />
-          <folding />
+        <state relative-caret-position="218">
+          <caret line="80" column="31" selection-start-line="80" selection-start-column="31" selection-end-line="80" selection-end-column="31" />
+          <folding>
+            <element signature="e#123#154#0" expanded="true" />
+            <element signature="e#359#488#0" expanded="false" />
+            <element signature="e#1073#1580#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
