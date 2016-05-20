@@ -105,7 +105,7 @@ def make_monolayer_graphene_system_2(Nx,Ny):
 
 def test():
     Nx = 30; Ny = 30;
-    sys,lead0,lead1 = make_monolayer_graphene_system_2(Nx,Ny)
+    sys,lead0,lead1 = make_monolayer_graphene_system(Nx,Ny)
     kwant.plot(sys)
 
 
