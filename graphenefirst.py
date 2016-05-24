@@ -69,9 +69,9 @@ def random_map(sys):
     pars.phi = 0.007*2.3
     pars.EF = 0.0
     pars.W = 1.0
-    # wd = calculate.wave_density(sys,pars,lead_nr=0)
+    wd = calculate.wave_density(sys,pars,lead_nr=0)
     T = calculate.calculate_conductance(sys,pars.EF,1,0,pars)
-    return  T
+    return  T, wd
 
 def main():
     Nx = 60
@@ -82,12 +82,12 @@ def main():
     N = 200
     random.seed(10000)
     for i in range(N):
-        T = random_map(sys)
-        # wd0 = wd0 + wd
+        T , wd = random_map(sys)
+        wd0 = wd0 + wd
         print i,T
         T0 = T0 + T
 
-    # kwant.plotter.map(sys, wd0/N)
+    kwant.plotter.map(sys, wd0/N)
     print T0/N
     # values = np.linspace(-0.5,0.5,50)
     # attr_vers_cond(sys,pars,values,"ER")
