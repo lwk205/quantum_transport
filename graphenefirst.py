@@ -97,7 +97,7 @@ def main():
     pars.EL = -0.1
     pars.ER = -0.1
     hams = calculate.get_system_hamiltonian(sys,pars,sparse=True)
-    evs, eigs = eigsh(hams,k=20)
+    evs, eigs = eigsh(hams, which="SM",k=20)
     print eigs.shape
 
 
