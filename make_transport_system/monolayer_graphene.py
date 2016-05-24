@@ -27,7 +27,7 @@ def make_monolayer_graphene_system(Nx,Ny):
     def potential(site,pars):
         x, y = site.pos
         EL, ER = pars.EL, pars.ER
-        return EL+(ER-EL)*x/Nx + pars.W*(2.0*random.random()-1.0)
+        return EL+(ER-EL)*x/(Nx-1) + pars.W*(2.0*random.random()-1.0)
 
 
     def hopping(site1,site2,pars) :
@@ -35,6 +35,12 @@ def make_monolayer_graphene_system(Nx,Ny):
         x2, y2 = site2.pos
         phi = pars.phi
         return -t*exp(-0.5j*phi*(x1-x2)*(y1+y2))
+
+    def right_pot(site,pars):
+        return pars.ER
+
+    def left_pot(site,pars):
+        return pars.EL
 
 
 
@@ -48,9 +54,9 @@ def make_monolayer_graphene_system(Nx,Ny):
     sym_right = kwant.lattice.TranslationalSymmetry((1,0))
     lead_left = kwant.Builder(sym_left)
     lead_right = kwant.builder.Builder(sym_right)
-    lead_left[[a(nx,ny) for a in Subs  for ny in range(Ny)] ]= potential
+    lead_left[[a(nx,ny) for a in Subs  for ny in range(Ny)] ]= left_pot
     lead_left[graphene.neighbors(eps=0.0001)] = -t
-    lead_right[[a(nx,ny) for a in Subs  for ny in range(Ny)] ]= potential
+    lead_right[[a(nx,ny) for a in Subs  for ny in range(Ny)] ]= right_pot
     lead_right[graphene.neighbors(eps=0.0001)] = -t
 
     sys.attach_lead(lead_left)

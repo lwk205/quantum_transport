@@ -24,10 +24,10 @@ class SimplenameSpace:
 
 def attr_vers_cond(sys,pars,values,attr):
     Ts = [
-        calculate.calculate_conductance(sys, pars.EF, out_leads=1, in_leads=0, pars=pars)
+        calculate.calculate_conductance(sys, 0.0, out_leads=1, in_leads=0, pars=pars)
         for vars(pars)[attr]  in values
         ]
-    draw.simple_plot_data_2d_without_ax([values, Ts],  xlabel=attr,ylabel="Conductance")
+    draw.simple_plot_data_2d_without_ax([values, Ts],  xlabel=attr,ylabel="Conductance",ylim=[0.0,1.2])
     # return np.array([values, Ts])
 
 def landau_levels(sys,values,pars, sparse):
@@ -62,25 +62,45 @@ def plot_bands(lead,pars):
     data = calculate.caculate_energy_band(lead,pars)
     draw.simple_plot_data_2d_without_ax(data, xlabel="k", ylabel="Energy")
 
+def random_map(sys):
+    pars = SimplenameSpace()
+    pars.EL = -0.1
+    pars.ER = 0.1
+    pars.phi = 0.007*2.3
+    pars.EF = 0.0
+    pars.W = 1.0
+    # wd = calculate.wave_density(sys,pars,lead_nr=0)
+    T = calculate.calculate_conductance(sys,pars.EF,1,0,pars)
+    return  T
+
 def main():
-    Nx = 32
-    Ny = 32
+    Nx = 60
+    Ny = 50
 
     sys, lead_left, lead_right = monolayer_graphene.make_monolayer_graphene_system(Nx,Ny)
-    # pars = SimplenameSpace()
-    # pars.EL = 0.0
-    # pars.phi = 0.0
-    # EFs = np.linspace(0.5,1.3)
-    # attr_vers_cond(sys,pars,EFs,"EF")
+    wd0, T0 = 0, 0
+    N = 200
+    random.seed(10000)
+    for i in range(N):
+        T = random_map(sys)
+        # wd0 = wd0 + wd
+        print i,T
+        T0 = T0 + T
+
+    # kwant.plotter.map(sys, wd0/N)
+    print T0/N
+    # values = np.linspace(-0.5,0.5,50)
+    # attr_vers_cond(sys,pars,values,"ER")
+
 
     #
-    pars = SimplenameSpace()
-    pars.EF = 0.0
-    pars.EL = 0.0
-    pars.ER = 0.0
-    phis = np.linspace(0.0,7,10)
-    landau_levels(sys,phis,pars,sparse=False)
+    # pars = SimplenameSpace()
+    # pars.EF = 0.0
+    # pars.EL = 0.01
+    # pars.ER = -0.01
+    # pars.phi = 0.0
 
+    # landau_levels(sys,phis,pars,sparse=False)
     # pars = SimplenameSpace()
     # plot_bands(lead_left,pars)
     # pars = SimplenameSpace()

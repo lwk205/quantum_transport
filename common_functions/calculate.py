@@ -41,8 +41,8 @@ def caculate_energy_band(lead, pars):
     enbands=[list(bands(k)) for k in ks]
     return [ks, enbands]
 
-def wave_density(sys, energy, pars, lead_nr=0):
-    wf = kwant.wave_function(sys, energy, args=[pars])
+def wave_density(sys,  pars, lead_nr=0):
+    wf = kwant.wave_function(sys, pars.EF, args=[pars])
     return (abs(wf(lead_nr))**2).sum(axis=0)
 
 
