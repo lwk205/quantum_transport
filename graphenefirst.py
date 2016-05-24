@@ -10,6 +10,7 @@ import random
 import kwant
 import matplotlib.pyplot as plt
 import numpy as np
+from scipy.linalg import eigh
 from common_functions import calculate, draw
 from make_transport_system import monolayer_graphene
 
@@ -73,44 +74,32 @@ def random_map(sys):
     T = calculate.calculate_conductance(sys,pars.EF,1,0,pars)
     return  T, wd
 
-def main():
-    Nx = 80
-    Ny = 30
 
-    sys, lead_left, lead_right = monolayer_graphene.make_monolayer_graphene_system(Nx,Ny)
+def many_times_random_map(sys,N=200):
     wd0, T0 = 0, 0
     N = 200
     random.seed(10000)
     for i in range(N):
-        T , wd = random_map(sys)
+        T, wd = random_map(sys)
         wd0 = wd0 + wd
-        print i,T
+        # print i, T
         T0 = T0 + T
+    kwant.plotter.map(sys, wd0 / N)
+    # print T0 / N
 
-    kwant.plotter.map(sys, wd0/N)
-    print T0/N
-    # values = np.linspace(-0.5,0.5,50)
-    # attr_vers_cond(sys,pars,values,"ER")
+def main():
+    Nx = 80
+    Ny = 30
+
+    sys, lead_left, lead_right = monolayer_graphene.make_monolayer_graphene_system(Nx, Ny)
+    pars = SimplenameSpace()
+    pars.EL = -0.1
+    pars.ER = -0.1
+    hams = calculate.get_system_hamiltonian(sys,pars)
+    evs, eigs = eigh(hams)
+    print eigs.shape
 
 
-    #
-    # pars = SimplenameSpace()
-    # pars.EF = 0.0
-    # pars.EL = 0.01
-    # pars.ER = -0.01
-    # pars.phi = 0.0
-
-    # landau_levels(sys,phis,pars,sparse=False)
-    # pars = SimplenameSpace()
-    # plot_bands(lead_left,pars)
-    # pars = SimplenameSpace()
-    # pars.phi = 0.0
-    # pars.EL = 1.0
-    # pars.ER = 0.0
-    # ham = calculate.get_system_hamiltonian(sys.finalized(),pars, sparse=True)
-    # landau_dos(sys,pars)
-    # egs = calculate.eig_system_hamiltonian(sys.finalized(),pars)
-    # return ham
 
 if __name__ == "__main__":
     main()
