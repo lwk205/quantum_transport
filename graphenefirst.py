@@ -11,6 +11,7 @@ import kwant
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy.linalg import eigh
+from scipy.sparse.linalg import eigsh
 from common_functions import calculate, draw
 from make_transport_system import monolayer_graphene
 
@@ -95,8 +96,8 @@ def main():
     pars = SimplenameSpace()
     pars.EL = -0.1
     pars.ER = -0.1
-    hams = calculate.get_system_hamiltonian(sys,pars)
-    evs, eigs = eigh(hams)
+    hams = calculate.get_system_hamiltonian(sys,pars,sparse=True)
+    evs, eigs = eigsh(hams,k=20)
     print eigs.shape
 
 
