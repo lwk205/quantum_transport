@@ -68,14 +68,14 @@ def random_map(sys):
     pars.ER = 0.1
     pars.phi = 0.007*2.3
     pars.EF = 0.0
-    pars.W = 1.0
+    pars.W = 0.6
     wd = calculate.wave_density(sys,pars,lead_nr=0)
     T = calculate.calculate_conductance(sys,pars.EF,1,0,pars)
     return  T, wd
 
 def main():
-    Nx = 60
-    Ny = 50
+    Nx = 80
+    Ny = 30
 
     sys, lead_left, lead_right = monolayer_graphene.make_monolayer_graphene_system(Nx,Ny)
     wd0, T0 = 0, 0
