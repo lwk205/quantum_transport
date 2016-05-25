@@ -75,6 +75,15 @@ def random_map(sys):
     T = calculate.calculate_conductance(sys,pars.EF,1,0,pars)
     return  T, wd
 
+def eig_solves(sys):
+    pars = SimplenameSpace()
+    pars.EL = -0.1
+    pars.ER = -0.1
+    pars.phi = 0.007*2.3
+    hams = calculate.get_system_hamiltonian(sys,pars,sparse=True)
+    eigs, evs = eigsh(hams, which="SM",k=20)
+    # print np.sort(eigs)
+    return eigs, evs
 
 def many_times_random_map(sys,N=200):
     wd0, T0 = 0, 0
@@ -94,13 +103,20 @@ def main():
 
     sys, lead_left, lead_right = monolayer_graphene.make_monolayer_graphene_system(Nx, Ny)
     pars = SimplenameSpace()
-    pars.EL = -0.1
-    pars.ER = -0.1
+    pars.EL = 0.1
+    pars.ER = 0.1
+    pars.phi = 0.007*2.3
     hams = calculate.get_system_hamiltonian(sys,pars,sparse=True)
-    evs, eigs = eigsh(hams, which="SM",k=20)
-    print eigs.shape
+    ham = calculate.get_system_hamiltonian(sys,pars,sparse = False)
+    eigs, evs = eigsh(hams, which="SM",k=20)
+    print evs.shape
+    return evs, eigs, sys, ham
 
 
 
-if __name__ == "__main__":
-    main()
+if __name__ == "__main__" :
+    evs, eigs, sys, ham = main()
+    wf = np.abs(evs)**2
+    kwant.plotter.map(sys, wf[:,0])
+    print eigs[0]
+    
