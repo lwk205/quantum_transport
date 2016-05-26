@@ -103,13 +103,13 @@ def main():
 
     sys, lead_left, lead_right = monolayer_graphene.make_monolayer_graphene_system(Nx, Ny)
     pars = SimplenameSpace()
-    pars.EL = 0.1
-    pars.ER = 0.1
+    pars.EL = -0.1
+    pars.ER = -0.1
     pars.phi = 0.007*2.3
     hams = calculate.get_system_hamiltonian(sys,pars,sparse=True)
     ham = calculate.get_system_hamiltonian(sys,pars,sparse = False)
     eigs, evs = eigsh(hams, which="SM",k=20)
-    print evs.shape
+    # print evs.shape
     return evs, eigs, sys, ham
 
 
