@@ -118,5 +118,5 @@ if __name__ == "__main__" :
     evs, eigs, sys, ham = main()
     wf = np.abs(evs)**2
     kwant.plotter.map(sys, wf[:,0])
-    print eigs[0]
+
     
