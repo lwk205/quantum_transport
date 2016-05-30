@@ -54,9 +54,9 @@ def make_monolayer_graphene_system(Nx,Ny):
     sym_right = kwant.lattice.TranslationalSymmetry((1,0))
     lead_left = kwant.Builder(sym_left)
     lead_right = kwant.builder.Builder(sym_right)
-    lead_left[[a(nx,ny) for a in Subs  for ny in range(Ny)] ]= left_pot
+    lead_left[[a(0,ny) for a in Subs  for ny in range(Ny)] ]= left_pot
     lead_left[graphene.neighbors(eps=0.0001)] = -t
-    lead_right[[a(nx,ny) for a in Subs  for ny in range(Ny)] ]= right_pot
+    lead_right[[a(Nx,ny) for a in Subs  for ny in range(Ny)] ]= right_pot
     lead_right[graphene.neighbors(eps=0.0001)] = -t
 
     sys.attach_lead(lead_left)
@@ -155,9 +155,9 @@ def make_monolayer_graphene_system_2(Nx,Ny):
     sym_right = kwant.lattice.TranslationalSymmetry((1,0))
     lead_left = kwant.Builder(sym_left)
     lead_right = kwant.builder.Builder(sym_right)
-    lead_left[[a(nx,ny) for a in Subs  for ny in range(Ny)] ]= potential
+    lead_left[[a(0,ny) for a in Subs  for ny in range(Ny)] ]= potential
     lead_left[[kwant.builder.HoppingKind(*hopping) for hopping in hoppings]] = -t
-    lead_right[[a(nx,ny) for a in Subs  for ny in range(Ny)] ]= potential
+    lead_right[[a(Nx-1,ny) for a in Subs  for ny in range(Ny)] ]= potential
     lead_right[[kwant.builder.HoppingKind(*hopping) for hopping in hoppings]] = -t
 
     sys.attach_lead(lead_left)
@@ -165,10 +165,66 @@ def make_monolayer_graphene_system_2(Nx,Ny):
 
     return sys.finalized(),lead_left,lead_right
 
+def make_monolayer_graphene_system_without_finalized(Nx,Ny):
+    """
+    :param 长度Nx:
+    :param 宽度Ny:
+    :return sys without lead , lead_left, lead_right:
+    """
+    t = 1.0
+    pass
+
+
+    def potential(site,pars):
+        x, y = site.pos
+        EL, ER = pars.EL, pars.ER
+        return EL+(ER-EL)*x/Nx + pars.W*(2.0*random.random()-1.0)
+
+
+    def hopping(site1,site2,pars) :
+        x1, y1 = site1.pos
+        x2, y2 = site2.pos
+        phi = pars.phi
+        return -t*exp(-0.5j*phi*(x1-x2)*(y1+y2))
+
+
+
+    graphene, Subs = _make_graphene_lattice()
+    a, b, c, d = Subs
+    hoppings = [
+                ((0, 0), b, a),
+                ((1, 0), b, a),
+                ((0, -1), d, a),
+                ((0, 0), c, b),
+                ((0, 0), d, c),
+                ((-1, 0), d, c)
+                ]
+
+    sys = kwant.Builder()
+
+    sys[[a(nx,ny) for a in Subs for nx in range(Nx) for ny in range(Ny)]] = potential
+    sys[[kwant.builder.HoppingKind(*hopping) for hopping in hoppings]] = hopping
+
+    sym_left = kwant.lattice.TranslationalSymmetry((-1,0))
+    sym_right = kwant.lattice.TranslationalSymmetry((1,0))
+    lead_left = kwant.Builder(sym_left)
+    lead_right = kwant.builder.Builder(sym_right)
+    lead_left[[a(0,ny) for a in Subs  for ny in range(Ny)] ]= potential
+    lead_left[[kwant.builder.HoppingKind(*hopping) for hopping in hoppings]] = -t
+    lead_right[[a(Nx-1,ny) for a in Subs  for ny in range(Ny)] ]= potential
+    lead_right[[kwant.builder.HoppingKind(*hopping) for hopping in hoppings]] = -t
+
+    # sys.attach_lead(lead_left)
+    # sys.attach_lead(lead_right)
+
+    return sys
+
+
 def test():
-    Nx = 30; Ny = 30;
-    sys,lead0,lead1 = make_monolayer_graphene_system(Nx,Ny)
+    Nx = 3; Ny = 3;
+    sys = make_monolayer_graphene_system_without_finalized(Nx,Ny)
     kwant.plot(sys)
+
 
 
 if __name__ == "__main__":
