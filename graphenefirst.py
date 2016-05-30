@@ -97,11 +97,14 @@ def many_times_random_map(sys,N=200):
     kwant.plotter.map(sys, wd0 / N)
     # print T0 / N
 
-def main():
-    Nx = 80
-    Ny = 30
+def get_current(sys_vector,sysvx,sysvy):
+    vx_coomatrix = calculat
 
-    sys, lead_left, lead_right = monolayer_graphene.make_monolayer_graphene_system(Nx, Ny)
+def main():
+    Nx = 60
+    Ny = 40
+
+    sys, sysvx, sysvy, lead_left, lead_right = monolayer_graphene.make_monolayer_graphene_system_with_v(Nx, Ny)
     pars = SimplenameSpace()
     pars.EL = -0.1
     pars.ER = -0.1

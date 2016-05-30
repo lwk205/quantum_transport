@@ -14,12 +14,12 @@ import numpy as np
 from scipy.linalg import eigh
 import random
 
-Nx = 50
-Ny = 40
+Nx = 40
+Ny = 30
 t = -1.0
-phi = 0.007*2.3
-EL = -1.0
-ER = 1.0
+phi = 0.00*2.3
+EL = 0.0
+ER = 0.0
 W = 0.0
 sys = kwant.Builder()
 sysvx = kwant.Builder()
@@ -97,9 +97,9 @@ sys = sys.finalized()
 sysvx = sysvx.finalized()
 sysvy = sysvy.finalized()
 ham = sys.hamiltonian_submatrix()
-eig_values, eig_vectors = eigsh(ham, k=20, which = "SM")
-
-#kwant.plotter.map(sys,np.abs(eig_vectors[:,0])**2)
+eig_values, eig_vectors = eigsh(ham, k=15, which = "SM")
+#N = len(eig_values)
+kwant.plotter.map(sys,np.abs(eig_vectors[:,4])**2)
 
 #kwant.plot(sys)
 
