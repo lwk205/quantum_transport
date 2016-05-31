@@ -194,12 +194,14 @@ def make_monolayer_graphene_system_with_v(Nx,Ny):
     def hopping_vx(site1,site2,pars) :
         x1, y1 = site1.pos
         x2, y2 = site2.pos
-        return hopping(site1,site2,pars)*(x2-x1)*1.0j
+        phi = pars.phi
+        return -t*exp(-0.5j*phi*(x1-x2)*(y1+y2))*(x2-x1)*1.0j
 
     def hopping_vy(site1,site2,pars) :
         x1, y1 = site1.pos
         x2, y2 = site2.pos
-        return hopping(site1,site2,pars)*(y2-y1)*1.0j
+        phi = pars.phi
+        return -t*exp(-0.5j*phi*(x1-x2)*(y1+y2))*(y2-y1)*1.0j
 
     graphene, subs = _make_graphene_lattice()
     a, b, c, d = subs
@@ -237,14 +239,18 @@ def make_monolayer_graphene_system_with_v(Nx,Ny):
     sys.attach_lead(lead_left)
     sys.attach_lead(lead_right)
 
-    return sys.finalized(), sysvx.finalized(), sysvy.finalized(), lead_left, lead_right
+    return sys.hoppings(),sys.finalized(), sysvx.finalized(), sysvy.finalized(), lead_left, lead_right
 
 
 def test():
     Nx = 3; Ny = 3;
-    sys, sysvx, sysvy, lead_left, lead_right = make_monolayer_graphene_system_with_v(Nx,Ny)
-    kwant.plot(sys)
-    kwant.plot(sysvx)
+    hopping_sites, sys, sysvx, sysvy, lead_left, lead_right = make_monolayer_graphene_system_with_v(Nx,Ny)
+    # kwant.plot(sys)
+    # kwant.plot(sysvx)
+    for site in hopping_sites:
+        print site
+
+
 
 
 
