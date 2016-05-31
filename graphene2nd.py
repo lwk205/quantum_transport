@@ -46,8 +46,8 @@ def eig_solves(sys):
    
 
 #def main():
-Nx = 50
-Ny = 30
+Nx = 60
+Ny = 40
 
 hop_sites, sys, sysvx, sysvy, lead_left, lead_right = monolayer_graphene.make_monolayer_graphene_system_with_v(Nx, Ny)
 
@@ -59,7 +59,7 @@ site_pos = np.array([(site[0].pos + site[1].pos)/2.0 for site in hop_sites])
 pars = SimplenameSpace()
 pars.EL = -0.0
 pars.ER = -0.0
-pars.phi = 0.5#0.007*2.3
+pars.phi = 0.05#0.007*2.3
 hams = calculate.get_system_hamiltonian(sys,pars,sparse=True)
 eigs, evs = eigsh(hams, which="SM",k=20)
 vx_coomatrix = calculate.get_system_hamiltonian(sysvx,pars,sparse=True)
