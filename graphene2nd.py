@@ -10,6 +10,7 @@ import random
 import kwant
 import matplotlib.pyplot as plt
 import numpy as np
+from matplotlib.mlab import griddata
 from scipy.linalg import eigh
 from scipy.sparse.linalg import eigsh
 from common_functions import calculate, draw
@@ -57,9 +58,9 @@ sites_index = [[sites.index(site[0]),sites.index(site[1])] for site in hop_sites
 site_pos = np.array([(site[0].pos + site[1].pos)/2.0 for site in hop_sites])
 
 pars = SimplenameSpace()
-pars.EL = -0.0
-pars.ER = -0.0
-pars.phi = 0.05#0.007*2.3
+pars.EL = -0.1
+pars.ER = -0.1
+pars.phi = 0.007*2.3
 hams = calculate.get_system_hamiltonian(sys,pars,sparse=True)
 eigs, evs = eigsh(hams, which="SM",k=20)
 vx_coomatrix = calculate.get_system_hamiltonian(sysvx,pars,sparse=True)
@@ -88,24 +89,29 @@ ev_coomatrix = coo_matrix((ev_data, (row,col) ), shape=(rows,cols))
 vx = (ev_coomatrix.T.conjugate()).dot(vx_coomatrix.dot(ev_coomatrix)).diagonal()
 vy = (ev_coomatrix.T.conjugate()).dot(vy_coomatrix.dot(ev_coomatrix)).diagonal()
 
+###datas
 vx = np.real(vx)
 vy = np.real(vy)
 
-X  = np.ones((cols,1))
-X = np.kron(X,site_pos[:,0])
-Y  = np.ones((1,cols))
-Y = np.kron(Y,site_pos[:,1].reshape(cols,1))
-Ux = np.diag(vx)
-Uy = np.diag(vy)
-speed = np.sqrt(Ux*Ux + Uy*Uy)
-lw = 5*speed 
+xs = site_pos[:,0]
+ys = site_pos[:,1]
+
+###define grid
+x_grid = np.linspace(xs.min(),xs.max(),10000)
+y_grid = np.linspace(ys.min(),ys.max(),10000)
+
+vxs = griddata(xs, ys, vx, x_grid, y_grid, interp='linear')
+vys = griddata(xs, ys, vy, x_grid, y_grid, interp='linear')
+
+
+speed = np.sqrt(vx**2+vy**2)
 
 plt.figure()
-plt.streamplot(X, Y, Ux, Uy, density=0.6, color='k', linewidth=lw)
+plt.streamplot(x_grid, y_grid, vxs,vys)
 plt.show()
 
 #data_save = np.array([site_pos[:,0],site_pos[:,1],vx,vy]).T
-#np.savetxt("current_dens.txt",data_save)
+#np.savetxt("current_dens2.txt",data_save)
 
 
     # print evs.shape
