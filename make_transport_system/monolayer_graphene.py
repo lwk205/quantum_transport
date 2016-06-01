@@ -239,7 +239,7 @@ def make_monolayer_graphene_system_with_v(Nx,Ny):
     sys.attach_lead(lead_left)
     sys.attach_lead(lead_right)
 
-    return sys.hoppings(),sys.finalized(), sysvx.finalized(), sysvy.finalized(), lead_left, lead_right
+    return list(sys.hoppings()),sys.finalized(), sysvx.finalized(), sysvy.finalized(), lead_left, lead_right
 
 
 def test():

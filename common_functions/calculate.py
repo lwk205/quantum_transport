@@ -58,14 +58,6 @@ def system_eigvalues(sys, pars,sparse=False):
         return sl.eigh(ham,eigvals_only=True)
 
 
-def get_current_density(sys, pars, lead_nr = 0):
-    wf = kwant.wave_function(sys, pars.EF, args=[pars])
-    wfs = wf(lead_nr)
-    modes = wfs.shape[0]
-    pass
-
-
-
 
 
 
